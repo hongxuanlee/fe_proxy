@@ -1,0 +1,11 @@
+[
+  {
+     "url": "api/v2/content/official_shop",
+     "rules": [
+       {
+          "path": "data.mock",
+          "value": true
+       }
+     ] 
+  }
+]
