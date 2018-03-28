@@ -1,11 +1,11 @@
-[
-  {
-     "url": "api/v2/content/official_shop",
-     "rules": [
-       {
-          "path": "data.mock",
-          "value": true
-       }
-     ] 
-  }
-]
+[{
+    "url": "api/v2/content/official_shop",
+    "rules": [
+        ["data.mock", false]
+    ]
+}, {
+    "url": "api/v1/category_list",
+    "rules": [
+        ["*.main.display_name", "mockname"]
+    ]
+}]
