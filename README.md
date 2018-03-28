@@ -44,9 +44,11 @@ you can use path to update data json, support wildcard *
 ```
 
 ### command
+```
 fep
  --server [start proxy server]
  --port [proxy port]
  --host [proxy host]
  --on   [turn global proxy on]
  --off  [turn global proxy off]
+```
