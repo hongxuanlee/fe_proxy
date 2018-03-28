@@ -1,15 +1,19 @@
 {
-  "name": "fe-proxy",
+  "name": "fe_proxy",
   "version": "0.0.1",
   "description": "for local request mock",
   "main": "index.js",
+  "bin": {
+    "fep": "bin/fep"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "es6-promisify": "^6.0.0",
+    "json-transfer": "0.0.7",
     "yargs": "^11.0.0"
   }
 }

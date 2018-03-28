@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 
 const yargs = require('yargs');
-const {spawn} = require('child_process');
+const ns = require('../src/networksetup');
+const feproxy = require('../');
 
 yargs.usage(`Usage: fep
+    --server [start proxy server]
     --port [proxy port]
     --host [proxy host]
     --on   [turn global proxy on]
@@ -14,10 +16,12 @@ const {
     argv
 } = yargs;
 
-if(argv.on) {
-    const ps = spawn('networksetup', ['-setwebproxy', 'Wi-fi', argv.host || '127.0.0.1', argv.port || '6001']);
-} else if(argv.off) {
-    const ps = spawn('networksetup', ['-setwebproxystate', 'Wi-fi', 'off']);
+if (argv.server) {
+    feproxy(argv.host, argv.port);
+} else if (argv.on) {
+    ns.setWebProxy(argv.host, argv.port);
+} else if (argv.off) {
+    ns.offWebProxy();
 } else {
-    const ps = spawn('networksetup', ['-getwebproxy', 'Wi-fi']);
+    ns.getWebProxy();
 }
