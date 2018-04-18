@@ -1,11 +1,20 @@
 [{
-    "url": "api/v2/content/official_shop",
+    "url": "api\/v2\/content\/official_shop",
     "rules": [
-        ["data.mock", false]
+        ["data.mock", true]
     ]
 }, {
-    "url": "api/v1/category_list",
+    "url": "api\/v2\/checkout\/get$",
     "rules": [
-        ["*.main.display_name", "mockname"]
+       ["payment_channels.1.subchannels.*.sub_description_info", {
+         "first": {
+            "text": "hahahahahaha",
+            "highlight": true
+         },
+         "second": {
+            "text": "second line.....",
+            "highlight": false
+         }
+       }]
     ]
 }]

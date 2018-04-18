@@ -1,7 +1,10 @@
 const jsonTrans = require('json-transfer');
 
 const matchUrl = (path, config) => {
-    return config.find(item => path.indexOf(item.url) > -1);
+    return config.find(item => {
+        const urlMatch = new RegExp(item.url);
+        return urlMatch.test(path);
+    });
 };
 
 const handleResponse = (pathRule, chunks) => {

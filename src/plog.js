@@ -4,6 +4,9 @@ const plog = (command) => {
     command.stdout.on('data', (data) => {
         res += data.toString();
     });
+    command.stderr.on('data', (data) => {
+        log(`stderr: ${data}`);
+    });
     command.on('close', () => {
         log(res);
     });

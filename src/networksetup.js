@@ -21,13 +21,13 @@ const serviceName = findNetworkService() || 'Wi-fi';
 log(`network serviceName is ${serviceName}`);
 
 const setWebProxy = (host, port) => {
-    const command = spawn('networksetup', ['-setwebproxy', serviceName, host || '127.0.0.1', port || '6001']);
-    plog(command);
+    execSync(`networksetup -setwebproxy "${serviceName}" ${host || '127.0.0.1'} ${port || '6001'}`);
+    getWebProxy();
 };
 
 const offWebProxy = () => {
-    const command = spawn('networksetup', ['-setwebproxystate', serviceName, 'off']);
-    plog(command);
+    execSync(`networksetup -setwebproxystate "${serviceName}" off`);
+    getWebProxy();
 };
 
 const getWebProxy = () => {
